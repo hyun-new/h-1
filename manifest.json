@@ -11,9 +11,12 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
-  "action": {},
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": [

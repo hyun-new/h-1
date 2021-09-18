@@ -1,4 +1,5 @@
 chrome.runtime.onInstalled.addListener(({ reason, version }) => {
+  chrome.storage.sync.set({ color });
   if (reason === chrome.runtime.OnInstalledReason.INSTALL) {
     showReadme();
   }
