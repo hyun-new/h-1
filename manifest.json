@@ -6,6 +6,7 @@
   "background": {
     "service_worker": "background.js"
   },
+<<<<<<< HEAD
   "browser_action": {
     "default_icon": {
       "16": "up-down-logo.png",
@@ -15,11 +16,15 @@
     },
     "default_popup": "popup.html"
   },
+=======
+
+>>>>>>> f4ec1b376a72330a58e526d2cc25dba99727fa58
   "permissions": [
     "activeTab",
     "storage"
   ],
   "action": {
+    "default_icon": "up-down-logo.png",
     "default_popup": "popup.html"
   },
   "content_scripts": [
