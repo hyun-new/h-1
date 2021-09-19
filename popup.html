@@ -2,16 +2,125 @@
 
 <html>
     <head>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
         <title>Safety Data: Travel or Not?</title>
+        <style>
+
+         #wrap {
+  width: 270px;
+  height: 600px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#scaled-frame {
+  width: 1000px;
+  height: 2000px;
+  border: 0px;
+}
+
+#scaled-frame {
+  zoom: 0.75;
+  -moz-transform: scale(0.75);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.75);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.75);
+  -webkit-transform-origin: 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  #scaled-frame {
+    zoom: 1;
+  }
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+        </style>
     </head>
-    <body>
-        <h1>Hey, it's your Stay Safe Travel Buddy!</h1>
-        <p>Where ya going?</p>         
-        <input id="name_textbox" />                   
-        <button id="ok_btn" type="button">OK</button> 
-        <h2>Recent Data</h2>
-        <h3>COVID Cases/Deaths Last Week</h2>
-        <h3>Will Cases Rise/Fall?</h3>
-        <h3>Is Travel Recommended?</h3>        
+    <body> <div class="w3-panel w3-card-4 w3-pale-blue">
+    <h3 style="text-align:center">Hey, it's your Stay Safe Travel Buddy!  <i class="glyphicon glyphicon-plane w3-spin"></i></h3>
+</div>
+
+        <p>Where ya going? (Do not load two sides at the same time.)</p>
+        <form>
+        <input id="name_textbox" placeholder="Type a country in mind..."/>
+        <br>
+        <div class="w3-row">
+
+          <div class="w3-col" style="width:7.5%">
+       <input type="button" onclick="search1()" value="Case Trends" class="w3-button w3-pale-red">
+     </div>
+     <div class="w3-col"style="width:1%">
+      <div class="loader" id="loader"></div>
+      </div>
+      <div class="w3-col"style="width:45%">
+       <p></p>
+     </div>
+
+        <div class="w3-col" style="width:10%">
+       <input type="button" onclick="search2()" value="Vaccination Rates" class="w3-button w3-pale-green">
+     </div>
+       <div class="w3-col"style="width:10%">
+       <div class="loader" id="loader2"></div>
+     </div>
+     </div>
+  <style>
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    display: none;
+    width: 12px;
+    height: 12px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+     </div>
+      </form>
+      <script>
+      function search1 (){
+        var inputF =  document.getElementById("name_textbox").value.trim().replace(" ","_");
+
+        document.getElementById("i1").src="https://sstravelbuddy.herokuapp.com/?search="+inputF;
+      const targetDiv = document.getElementById("loader");
+        targetDiv.style.display = "block";
+      }
+      function search2 (){
+        var inputF =  document.getElementById("name_textbox").value.trim().replace(" ","_");
+
+      document.getElementById("i2").src="https://sstravelbuddy.herokuapp.com/vaccine/?search="+inputF;
+        const targetDiv = document.getElementById("loader2");
+        targetDiv.style.display = "block";
+      }
+      </script>
+      <div class = "row">
+       <div id="wrap" class="column">
+       <iframe id ="i1" style ="width:350px; height:600px;"></iframe>
+     </div>
+      <div id="wrap" class="column">
+       <iframe id ="i2" style ="width:350px; height:600px;"></iframe>
+     </div>
+
+
     </body>
 </html>
