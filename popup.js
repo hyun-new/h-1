@@ -1,7 +1,15 @@
-chrome.tabs.executeScript( {
-  code: "window.getSelection().toString();"
-}, function(selection) {
-  var query = encodeURIComponent(selection[0] || '汉典')
-  document.querySelector('iframe').src = 
-    'http://www.zdic.net/hans/' + query
-});
+document.addEventListener('DOMContentLoaded', documentEvents  , false);
+
+function myAction(input) { 
+    console.log("input value is : " + input.value);
+    alert("The entered data is : " + input.value);
+
+}
+
+function documentEvents() {    
+  document.getElementById('ok_btn').addEventListener('click', 
+    function() { myAction(document.getElementById('name_textbox'));
+  });
+
+
+}

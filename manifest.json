@@ -1,5 +1,5 @@
 {
-  "name": "Covid Data Web Scraper and Processor",
+  "name": "Stay Safe Travel Buddy",
   "description": "This exstension uses a web scrapper to gather real-time COVID data and provide stats and travel suggestions to users",
   "version": "1.0",
   "manifest_version": 3,
