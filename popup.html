@@ -56,7 +56,7 @@
         <div class="w3-row">
 
           <div class="w3-col" style="width:7.5%">
-       <input type="button" onclick="search1()" value="Case Trends" class="w3-button w3-pale-red">
+       <input type="button" id="search1" value="Case Trends" class="w3-button w3-pale-red">
      </div>
      <div class="w3-col"style="width:1%">
       <div class="loader" id="loader"></div>
@@ -66,53 +66,40 @@
      </div>
 
         <div class="w3-col" style="width:10%">
-       <input type="button" onclick="search2()" value="Vaccination Rates" class="w3-button w3-pale-green">
+       <input type="button" id="search2" value="Vaccination Rates" class="w3-button w3-pale-green">
      </div>
        <div class="w3-col"style="width:10%">
        <div class="loader" id="loader2"></div>
      </div>
      </div>
   <style>
-  .loader {
-    border: 5px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 5px solid #3498db;
-    display: none;
-    width: 12px;
-    height: 12px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-  }
+          .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #3498db;
+            display: none;
+            width: 12px;
+            height: 12px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+          }
 
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
+          /* Safari */
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
   </style>
      </div>
       </form>
-      <script>
-      function search1 (){
-        var inputF =  document.getElementById("name_textbox").value.trim().replace(" ","_");
+      <script type="text/javascript" src = "websc.js"></script>
+      <script type="text/javascript" src = "popup.js"></script>
 
-        document.getElementById("i1").src="https://sstravelbuddy.herokuapp.com/?search="+inputF;
-      const targetDiv = document.getElementById("loader");
-        targetDiv.style.display = "block";
-      }
-      function search2 (){
-        var inputF =  document.getElementById("name_textbox").value.trim().replace(" ","_");
-
-      document.getElementById("i2").src="https://sstravelbuddy.herokuapp.com/vaccine/?search="+inputF;
-        const targetDiv = document.getElementById("loader2");
-        targetDiv.style.display = "block";
-      }
-      </script>
       <div class = "row">
        <div id="wrap" class="column">
        <iframe id ="i1" style ="width:350px; height:600px;"></iframe>
